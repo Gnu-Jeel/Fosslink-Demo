@@ -22,7 +22,7 @@ html[data-startup] body>:not(#startup-screen):not(script):not(noscript){visibili
 (()=>{
 const root=document.documentElement;
 root.setAttribute('data-startup','');
-try{root.dataset.startupTheme=localStorage.getItem('fosslink-theme')==='light'?'light':'dark'}catch{root.dataset.startupTheme='dark'}
+try{const saved=localStorage.getItem('fosslink-theme');root.dataset.startupTheme=saved==='light'||saved==='dark'?saved:matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}catch{root.dataset.startupTheme='light'}
 const started=performance.now();let finished=false,timeout;
 window.fosslinkStartup={ready(){
 if(finished)return;finished=true;clearTimeout(timeout);
