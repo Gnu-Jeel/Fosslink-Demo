@@ -17,7 +17,7 @@ render=function(){baseRender();chrome()};
 let themeTimer;
 app.addEventListener('click',e=>{if(!e.target.closest('[data-theme]'))return;clearTimeout(themeTimer);document.body.classList.add('theme-changing');themeTimer=setTimeout(()=>document.body.classList.remove('theme-changing'),500)},true);
 app.addEventListener('click',e=>{if(!e.target.closest('[data-theme]'))return;app.querySelector('[data-theme]')?.setAttribute('aria-label',`Switch to ${document.body.classList.contains('light-theme')?'dark':'light'} mode`)});
-dock.addEventListener('click',e=>{const button=e.target.closest('[data-dock-view]');if(!button)return;if(dock.classList.contains('dock-collapsed')){dock.classList.remove('dock-collapsed');return}view=button.dataset.dockView;render();window.scrollTo({top:0,behavior:'instant'})});
+dock.addEventListener('click',e=>{const button=e.target.closest('[data-dock-view]');if(!button)return;if(dock.classList.contains('dock-collapsed')){dock.classList.remove('dock-collapsed');return}view=button.dataset.dockView;render();window.scrollTo({top:0,behavior:'instant'});persistUIState()});
 let lastY=window.scrollY,travel=0,direction=0;
 window.addEventListener('scroll',()=>{const y=Math.max(0,window.scrollY),delta=y-lastY;lastY=y;if(Math.abs(delta)<2)return;const dir=Math.sign(delta);travel=dir===direction?travel+Math.abs(delta):Math.abs(delta);direction=dir;if(y<70||dir<0&&travel>12)dock.classList.remove('dock-collapsed');else if(dir>0&&travel>45&&!dock.querySelector(':focus-visible'))dock.classList.add('dock-collapsed')},{passive:true});
 dock.addEventListener('focusin',()=>dock.classList.remove('dock-collapsed'));

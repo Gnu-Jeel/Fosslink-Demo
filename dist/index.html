@@ -30,7 +30,7 @@ const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 setTimeout(()=>requestAnimationFrame(()=>requestAnimationFrame(()=>{
 const screen=document.getElementById('startup-screen'),app=document.getElementById('app');
 root.removeAttribute('data-startup');app.removeAttribute('inert');app.setAttribute('aria-busy','false');
-screen.classList.add('startup-exit');setTimeout(()=>{screen.remove();root.removeAttribute('data-startup-theme')},reduced?0:300);
+screen.classList.add('startup-exit');setTimeout(()=>{screen.remove();root.removeAttribute('data-startup-theme');window.restoreFosslinkUI?.()},reduced?0:300);
 })),Math.max(0,(reduced?0:650)-(performance.now()-started)));
 }};
 timeout=setTimeout(()=>{if(finished)return;const status=document.getElementById('startup-message'),retry=document.getElementById('startup-retry');if(status)status.textContent='Fosslink is taking longer to start. Please try reloading.';if(retry)retry.hidden=false},10000);
