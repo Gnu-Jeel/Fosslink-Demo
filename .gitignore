@@ -7,3 +7,32 @@ pricing-fragment.txt
 brand-fragment.css
 card-controls.txt
 update-cards.cjs
+.local-review/
+finish-inventory.cjs
+fix-energy-picker.cjs
+inventory-controls.txt
+replace-inventory.cjs
+splash-shell.html
+update-energy-costs.cjs
+node_modules/
+.env
+.env.*
+!.env.example
+
+# Operating system and editor files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+*.swp
+*.swo
+
+# Local logs and test output
+*.log
+coverage/
+playwright-report/
+test-results/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
