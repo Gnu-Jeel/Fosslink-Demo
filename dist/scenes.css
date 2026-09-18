@@ -8,15 +8,15 @@
 .mood-grid .mood-card,.mood-grid .mood-card:last-child{display:grid;grid-template-columns:32px minmax(0,1fr);grid-template-rows:auto auto;align-content:center;align-items:center;column-gap:10px;row-gap:1px;flex:0 1 182px;min-height:66px;padding:11px 22px 11px 11px;border-radius:14px}
 .mood-card .mood-icon,.mood-card:last-child .mood-icon{grid-column:1;grid-row:1/3;width:32px;height:32px;margin:0;border-radius:10px}
 .mood-icon svg{width:18px;height:18px}
-.mood-card .mood-name{grid-column:2;grid-row:1;font-size:14px;line-height:1.4}
-.mood-card small{grid-column:2;grid-row:2;font-size:13px;line-height:1.4}
+.mood-card .mood-name{grid-column:2;grid-row:1;font-size:13px;line-height:1.4}
+.mood-card small{grid-column:2;grid-row:2;font-size:12px;line-height:1.4}
 .mood-check{right:6px;top:7px}
 .mood-check svg{width:11px;height:11px}
 .mood-card:hover{transform:translateY(-2px)}
 .mood-hint{margin-top:9px}
 .mood-active{padding:12px 14px;margin-top:10px;border-radius:14px}
 @media(max-width:600px){.mood-grid .mood-card,.mood-grid .mood-card:last-child{flex:1 1 calc(50% - 8px);min-width:0;padding:10px 15px 10px 10px;column-gap:8px;min-height:64px}.mood-grid .mood-card:last-child{flex-grow:0;flex-basis:calc(50% - 4px)}.mood-name{overflow-wrap:normal}.mood-heading p{font-size:11px}}
-@media(min-width:1300px){.mood-grid .mood-card,.mood-grid .mood-card:last-child{flex-basis:calc((100% - 48px)/7);padding-right:15px;column-gap:8px}.mood-card .mood-name{font-size:14px;line-height:1.4}.mood-card small{font-size:13px;line-height:1.4}}
+@media(min-width:1300px){.mood-grid .mood-card,.mood-grid .mood-card:last-child{flex-basis:calc((100% - 48px)/7);padding-right:15px;column-gap:8px}.mood-card .mood-name{font-size:13px;line-height:1.4}.mood-card small{font-size:12px;line-height:1.4}}
 /* Eight scenes form balanced rows at every breakpoint. */
 .mood-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
 .mood-grid .mood-card:last-child{grid-column:auto}
