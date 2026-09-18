@@ -1,0 +1,54 @@
+/* Natural-height cards are packed into measured grid tracks by device-layout.js. */
+.workspace:has(.room-groups){display:block}
+.content:has(.room-groups){max-width:1600px}
+.room-groups{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:24px;align-items:start}
+.room-group{min-width:0}
+.room-group .devices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;align-items:start}
+.room-group .device{min-height:64px!important;height:auto;padding:10px 8px;overflow:visible;min-width:0;margin:0;align-self:start}
+.room-group .device:has(.tile-control),.room-group .device:has(.thermostat-stepper),.room-group .sensor-graph{grid-row:auto}
+.room-groups.packed,.room-group .devices.packed{grid-auto-rows:1px;row-gap:0;grid-auto-flow:row dense}
+.room-groups>.room-group:only-child{grid-column:1/-1}
+.room-groups>.room-group:only-child .devices{grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr))}
+.room-group .tile-head{min-height:42px;gap:7px}
+.room-group .device-icon{width:32px;height:32px;padding:6px}
+.room-group .device-info{min-width:0;align-self:center}
+.room-group .device-info b{font-size:13px;line-height:1.35;white-space:normal;overflow-wrap:anywhere}
+.room-group .device-info span{font-size:12px;line-height:1.4;white-space:normal;overflow-wrap:anywhere}
+.room-group .switch{display:none}
+.room-group .tile-control{margin-top:8px}
+.room-group .slider-label{display:none}
+.room-group .tile-slider{height:40px}
+.room-group .thermostat-stepper{margin-top:8px;display:grid;grid-template-columns:36px minmax(0,1fr) 36px;min-height:40px}
+.room-group .thermostat-stepper button{padding:0;min-height:40px}
+.room-group .thermostat-stepper output{text-align:center;font-size:12px;white-space:nowrap}
+.room-group .sensor-reading{padding:4px 8px 0;font-size:22px;line-height:26px}
+.room-group .snapshot-line{height:20px;display:block}
+.workspace:has(.room-groups)>.rail{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px;margin-top:28px}
+.workspace:has(.room-groups)>.rail>.rail-card{margin:0;grid-column:auto}
+/* Existing palette remains the source of every tint. Text and controls stay opaque. */
+body{background-image:radial-gradient(ellipse at 12% 15%,color-mix(in srgb,var(--accent-bg) 45%,transparent),transparent 55%),radial-gradient(ellipse at 90% 75%,color-mix(in srgb,var(--fan-soft) 35%,transparent),transparent 55%);background-attachment:fixed}
+:is(aside,.topbar){background:color-mix(in srgb,var(--sidebar) 78%,transparent);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+:is(.device,.stat,.rail-card,.scene,.home-switch,.demo-box,.reference-badges button){background:color-mix(in srgb,var(--surface) 76%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:color-mix(in srgb,var(--line) 65%,transparent);box-shadow:inset 0 1px 0 color-mix(in srgb,var(--text) 7%,transparent),0 4px 16px #00000007}
+:is(.welcome,.scene.selected,nav button.active,.room-tabs .active){background:color-mix(in srgb,var(--accent-bg) 80%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.saving{background:color-mix(in srgb,var(--energy-soft) 80%,transparent)}
+dialog{background:color-mix(in srgb,var(--surface) 87%,transparent);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px)}
+dialog::backdrop{backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+:is(.actions button:not(.primary),.cover-actions button,.media-actions button,.number-control,.detail-modes,.quote-link){background:color-mix(in srgb,var(--raised) 78%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.primary{background:color-mix(in srgb,var(--primary) 94%,transparent)}
+dialog select,dialog input:not([type=range]):not([type=color]):not([type=checkbox]){background:color-mix(in srgb,var(--raised) 85%,transparent)}
+@media(max-width:550px){.room-group h3{font-size:15px}.room-group h3>span{font-size:11px}.room-group .device-info b{font-size:12px}.room-group .device-info span{font-size:11px}}
+@media(max-width:360px){.room-group .tile-head{gap:5px}.room-group .device-icon{width:28px;height:28px;padding:5px}.room-group .thermostat-stepper{grid-template-columns:30px minmax(0,1fr) 30px}}
+@media(prefers-reduced-transparency:reduce){:is(aside,.topbar){background:var(--sidebar)}:is(.device,.stat,.rail-card,.scene,.home-switch,.demo-box,.reference-badges button,dialog){background:var(--surface);backdrop-filter:none}}
+/* The same packing model applies on phones; no fixed-height or column-flow fallback. */
+@media(max-width:600px){
+ .room-groups>.room-group:only-child .devices{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .room-group .tile-head{min-height:42px;align-items:center;gap:7px}
+ .room-group .device-icon{width:30px;height:30px;padding:5px;flex-shrink:0}
+ .room-group .device-info{min-width:0;align-self:center}
+ .room-group .device-info b{line-height:1.35;overflow-wrap:normal}
+ .room-group .device-info span{line-height:1.4;overflow-wrap:normal}
+ .room-group .tile-control,.room-group .thermostat-stepper{margin-top:8px}
+ .room-group .tile-slider{height:36px}
+ .room-group .sensor-reading{padding:6px 0 0;font-size:21px}
+ .room-group .snapshot-line{height:16px}
+}

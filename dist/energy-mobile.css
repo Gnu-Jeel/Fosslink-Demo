@@ -1,0 +1,9 @@
+.energy-mobile-picker{display:none}
+@media(max-width:600px){
+ .energy-tabbar{display:none}
+ .energy-mobile-picker{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 16px;padding:12px 16px;border:1px solid color-mix(in srgb,var(--line) 65%,transparent);border-radius:18px;background:color-mix(in srgb,var(--surface) 80%,transparent);backdrop-filter:blur(18px)}
+ .energy-mobile-picker label{display:flex;align-items:center;gap:9px;font-size:15px;font-weight:600}
+ .energy-mobile-picker label svg{color:var(--energy);width:20px;height:20px}
+ .energy-mobile-picker select{min-width:0;max-width:60%;padding:10px 30px 10px 12px;border:0;border-radius:12px;background:var(--accent-bg);color:var(--text);font:inherit;font-size:14px;font-weight:500;cursor:pointer}
+ .energy-period{gap:6px;justify-content:space-between}.energy-period>button{padding:9px 11px;font-size:12px}.energy-period label{margin-left:0;font-size:12px}
+}

@@ -1,0 +1,37 @@
+// Home Assistant public home demo inventory, observed September 13–14, 2026.
+// Readings are a fixed demo snapshot; controls change this browser session only.
+const DEMO_GROUPS=['Living room','Kitchen','Energy','Climate','Study','Outdoor','Updates'];
+const DEMO_ENTITIES=[
+{name:'Floor lamp',room:'Living room',type:'light',on:true,value:70,color:'#ffa24d',temp:2700,colorCapable:true,dim:true,watts:12,detailName:'Floor lamp'},
+{name:'Spotlights',room:'Living room',type:'light',on:true,value:49,dim:true,inline:true,watts:40,detailName:'Living room spotlights'},
+{name:'Bar lamp',room:'Living room',type:'light',on:true,dim:false,value:100,watts:9},
+{name:'Blinds',room:'Living room',type:'cover',value:100,detailName:'Living room garden shutter'},
+{name:'Nest mini',room:'Living room',type:'media',on:true,playing:true,volume:18,position:67,track:0,source:"It's A Party",muted:false,shuffle:false,watts:5},
+{name:'Shutter',room:'Kitchen',type:'cover',value:100,detailName:'Kitchen shutter'},
+{name:'Spotlights',room:'Kitchen',type:'light',on:false,value:1,dim:true,inline:true,watts:30,detailName:'Kitchen spotlights'},
+{name:'Worktop',room:'Kitchen',type:'light',on:false,value:60,dim:true,watts:20,detailName:'Kitchen worktop'},
+{name:'Fridge',room:'Kitchen',type:'binary',reading:'Closed',glyph:'fridge',detailName:'Fridge door'},
+{name:'Nest Audio',room:'Kitchen',type:'media',on:true,playing:false,volume:35,position:0,track:0,source:'Radio HSL',muted:false,shuffle:false,watts:8},
+{name:'EV',room:'Energy',type:'binary',reading:'Unplugged',glyph:'car',detailName:'EV charger'},
+{name:'Last charge',room:'Energy',type:'sensor',reading:'16.3',unit:'kWh',glyph:'energy'},
+{name:'Home power',room:'Energy',type:'sensor',reading:'797.86',unit:'W',glyph:'energy'},
+{name:'Voltage',room:'Energy',type:'sensor',reading:'232.19',unit:'V',glyph:'wave'},
+{name:'Fossil fuel',room:'Energy',type:'sensor',reading:'9.84',unit:'%',glyph:'leaf'},
+{name:'CO2 Intensity',room:'Energy',type:'sensor',reading:'62.0',unit:'gCO2eq/kWh',glyph:'cloud'},
+{name:'Sun',room:'Climate',type:'sensor',reading:'Above horizon',glyph:'sun'},
+{name:'Rain',room:'Climate',type:'sensor',reading:'7.2',unit:'mm',glyph:'rain'},
+{name:'Downstairs',room:'Climate',type:'climate',on:true,value:21,current:20.8,mode:'Heat',preset:'Comfort',watts:900,detailName:'Ground floor Thermostat'},
+{name:'Upstairs',room:'Climate',type:'climate',on:true,value:21,current:21.7,mode:'Heat',preset:'Comfort',watts:900,detailName:'Upstairs Thermostat'},
+{name:'Shutter',room:'Study',type:'cover',value:100,detailName:'Study shutter'},
+{name:'Spotlights',room:'Study',type:'light',on:false,value:50,dim:true,watts:24,detailName:'Study spotlights'},
+{name:'Nest Hub',room:'Study',type:'media',on:false,playing:false,volume:25,position:0,track:0,source:'Retro 70s and 80s',muted:false,shuffle:false,watts:12},
+{name:'Desk',room:'Study',type:'sensor',reading:'72',unit:'cm',glyph:'desk',detailName:'Standing desk Height'},
+{name:'Meeting mode',room:'Study',type:'switch',on:true,glyph:'meeting'},
+{name:'Door light',room:'Outdoor',type:'light',on:true,value:100,dim:true,watts:10},
+{name:'Flood light',room:'Outdoor',type:'light',on:false,value:100,dim:true,watts:50},
+{name:'Temperature',room:'Outdoor',type:'sensor',reading:'10.2',unit:'°C',glyph:'climate',graph:true},
+{name:'Motion',room:'Outdoor',type:'binary',reading:'Clear',glyph:'motion'},
+{name:'Illuminance',room:'Outdoor',type:'sensor',reading:'555',unit:'lx',glyph:'sun'},
+{name:'Auto-update',room:'Updates',type:'switch',on:false,glyph:'update'},
+{name:'OS',room:'Updates',type:'update',reading:'Up-to-date',detailName:'Fosslink Operating System Update'}
+];
